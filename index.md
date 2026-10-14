@@ -1,8 +1,8 @@
 # Ucuza Bul – Gizlilik Politikası
 
 **Sürüm:** 1.23.0 · **Son güncelleme:** 14 Ekim 2026
-**Geliştirici / Veri sorumlusu:** [GELİŞTİRİCİ ADI veya ŞİRKET ÜNVANI]
-**İletişim:** [E-POSTA ADRESİ] · [WEB SİTESİ]
+**Geliştirici / Veri sorumlusu:** Burak
+**İletişim:** · ucuzlamis.com
 
 Bu politika, "Ucuza Bul – Fiyat Karşılaştırma ve En Ucuz Fiyat Bulucu" Chrome eklentisinin (bundan sonra "Eklenti") hangi verileri işlediğini, nerede sakladığını ve kimlerle paylaştığını açıklar. Eklentinin kodu ile bu metin birebir uyumludur; kodda olmayan bir veri toplama yapılmaz.
 
