@@ -1,106 +1,144 @@
-# Ucuza Bul – Gizlilik Politikası
 
-**Sürüm:** 1.23.0 · **Son güncelleme:** 14 Ekim 2026
-**Geliştirici / Veri sorumlusu:** Burak
-**İletişim:** · ucuzlamis.com
-
-Bu politika, "Ucuza Bul – Fiyat Karşılaştırma ve En Ucuz Fiyat Bulucu" Chrome eklentisinin (bundan sonra "Eklenti") hangi verileri işlediğini, nerede sakladığını ve kimlerle paylaştığını açıklar. Eklentinin kodu ile bu metin birebir uyumludur; kodda olmayan bir veri toplama yapılmaz.
-
-## 1. Kısaca
-
-- Eklentinin **kendi sunucusu yoktur**. Hesap, e-posta, şifre veya ödeme bilgisi istemez, toplamaz.
-- Geçmiş, favoriler, fiyat takibi, ayarlar gibi verileriniz **yalnızca tarayıcınızda** (`chrome.storage.local`) saklanır.
-- Aradığınız ürünün adı, ürün bağlantıları ve arama metniniz **bize gönderilmez**; yalnızca fiyat karşılaştırması için ilgili alışveriş sitelerine (aşağıda listelenmiştir) istek olarak gider.
-- Eklenti, kullanım istatistiği için **Google Analytics 4**'e yalnızca toplu/teknik bilgi gönderir (Madde 4).
-- Verileriniz **satılmaz**, reklam profili çıkarmak için kullanılmaz.
-- Ürün bağlantıları **satış ortaklığı (affiliate)** parametresi içerebilir (Madde 6).
-
-## 2. Eklentinin yaptığı işler ve işlenen veriler
-
-**2.1. Ürün sayfasında "UCUZA BUL" butonu.** Trendyol, Hepsiburada, N11 ve Amazon TR ürün sayfalarında eklenti, sayfadaki ürün adı, fiyat, görsel ve bağlantıyı okur. Bu bilgi tarayıcı içinde işlenir ve karşılaştırma için kullanılır.
-
-**2.2. Fiyat karşılaştırma ve serbest arama.** Ürün adından üretilen arama sorguları, eklentinin arka plan servisi tarafından şu sitelere HTTPS isteği olarak gönderilir: Trendyol, Amazon TR, Hepsiburada, N11, PttAVM, Pazarama, idefix, Motorossa, Teknosa. Dönen sayfa tarayıcıda ayrıştırılır; eşleşme ve fiyat hesabı cihazınızda yapılır. Bu istekler tarayıcınızdaki oturum çerezleriyle (`credentials: include`) gönderilir; yani bu sitelerde hesabınız açıksa site isteği hesabınızla ilişkilendirebilir. Eklenti çerezleri okumaz ve saklamaz (çerez izni yoktur). İstekler ilgili sitenin kendi gizlilik politikasına tabidir.
-
-**2.3. Geçmiş ve fiyat geçmişi.** Yaptığınız karşılaştırmalar (ürün adı, fiyatlar, site adları, bağlantılar; en çok 60 kayıt) ve gördüğünüz ürünlerin fiyat değişim noktaları yalnızca cihazınızda saklanır. Popup'tan tek tek ya da toptan silebilirsiniz.
-
-**2.4. Favoriler ve fiyat alarmı.** Hepsiburada, Trendyol, N11 ve Amazon TR'deki favori/istek listesi sayfasını **siz açtığınızda**, eklenti sayfadaki ürün kartlarını (ad, fiyat, görsel, bağlantı) okuyup yerel olarak kaydeder. Trendyol için eklenti, oturumunuzla favori sayfasını arka planda da okuyabilir. Fiyat alarmı için favori ve alarmı açık ürünlerin sayfaları periyodik olarak (en çok saatlik, ürün başına en az birkaç saatte bir) yeniden okunur. Bir ürünü kendiniz favoriye ekleyip çıkarabilirsiniz.
-
-**2.5. Üyelik durumu (Amazon Prime, Trendyol Plus, Hepsiburada Premium).** Doğru fiyatı göstermek için eklenti, bu siteleri açtığınızda sayfa başlığındaki üyelik işaretini okur; ayrıca bu sitelerin ilgili sayfalarını oturum çerezlerinizle (`credentials: include`) arka planda okuyarak üye olup olmadığınızı **yalnızca "evet / hayır" olarak** yerel olarak kaydeder. Sayfanın diğer içeriği saklanmaz. Popup > Ayarlar > Aboneliklerim bölümünden bu değeri elle değiştirebilirsiniz. N11 için otomatik tespit yoktur.
-
-**2.6. "Sana Özel" öneriler ve kampanya bannerları.** Amazon TR (size özel öneriler ve fırsatlar), Trendyol (önceden gezdikleriniz / sana özel), Hepsiburada ("son gezdiğin ürünler") ve N11 sayfaları oturum çerezlerinizle okunarak popup'taki öneri alanı; Hepsiburada, N11 ve Amazon TR ana/kampanya sayfaları okunarak reklam/kampanya alanı doldurulur. Bu içerik yalnızca cihazınızdaki önbellekte tutulur, bize gönderilmez.
-
-**2.7. Bildirimler.** Fiyat alarmı açıksa fiyat düşüşü simge üzerinde bir nokta, sayfa içi küçük bir kart ve (ayarınız açıksa) Windows/işletim sistemi bildirimi olarak gösterilir. Bildirim ayarları Popup > Ayarlar > Bildirim Ayarları'ndadır. Bildirimler cihazınızda üretilir.
-
-**2.8. Onboarding.** İlk kullanımdaki kısa tur yalnızca "gösterildi" bilgisini yerel olarak saklar.
-
-## 3. Cihazınızda saklanan veriler
-
-`chrome.storage.local` içinde: karşılaştırma önbelleği (en çok birkaç saat), karşılaştırma geçmişi, ürün fiyat geçmişi, favoriler ve kaldırdığınız favoriler, alarm tercihleri, bildirim ayarları, üyelik durumu (evet/hayır), öneri ve banner önbelleği, görülen öneriler, onboarding durumu, rastgele analitik kimliği ve oturum bilgisi. Bu veriler Google hesabınızla senkronize edilmez; eklentiyi kaldırdığınızda silinir. `localStorage` içinde yalnızca Trendyol Plus bilgisinin yerel kopyası tutulabilir.
-
-## 4. Kullanım istatistikleri (Google Analytics 4)
-
-Eklentiyi geliştirmek için GA4 Measurement Protocol ile anonim kullanım olayları gönderilir. Uzak betik yüklenmez; olaylar HTTPS isteğiyle `www.google-analytics.com` adresine iletilir.
-
-**Gönderilenler:** rastgele üretilmiş istemci kimliği (Google hesabınızla ilişkisi yoktur) ve oturum numarası; eklenti sürümü; tarayıcı dili; üyelik durumu (Amazon Prime / Trendyol Plus için evet-hayır-bilinmiyor); olay adları ve toplu bilgiler: kaynak site adı, eşleşme sayıları, "daha ucuz bulundu mu", en ucuz sitenin adı, geniş fiyat aralığı (örn. "500-2000"), yuvarlanmış tahmini tasarruf (TL ve %), yanıt vermeyen site sayısı, süre (ms), butonun gösterilmesi/üzerine gelinmesi, popup sekme görüntüleme, ortaklık bağlantısına tıklama, paylaş düğmesi kullanımı, ayar değişikliği (hangi ayar, açık/kapalı), onboarding adımları, kurulum/güncelleme.
-
-**Gönderilmeyenler:** ürün başlığı, arama metni, ürün veya sayfa adresleri (URL), favori ve geçmiş içeriği, hesap/kimlik/şifre/çerez bilgisi.
-
-Google, isteğin doğası gereği IP adresinizi alır ve yaklaşık konum çıkarımı yapabilir; bu işleme Google'ın politikası uygulanır (https://policies.google.com/privacy). GA4 veri saklama süresi: [14 ay – GA4 ayarınıza göre güncelleyin]. Analitik gönderimi şu an Eklenti içinde kapatılamaz; durdurmak için Eklentiyi kaldırabilirsiniz.
-
-## 5. Üçüncü taraflara yapılan istekler
-
-| Alıcı | Neden | Ne gider |
-|---|---|---|
-| Trendyol, Amazon TR, Hepsiburada, N11, PttAVM, Pazarama, idefix, Motorossa, Teknosa | Fiyat/arama/öneri/üyelik/favori okuma | Arama sorgusu ve sayfa isteği; tarayıcı oturum çerezleriniz de ilgili siteye gider (eklenti çerezleri okumaz) |
-| Google Analytics (google-analytics.com) | Kullanım istatistiği | Madde 4'teki toplu bilgiler |
-| Google Fonts (fonts.googleapis.com) | Popup yazı tipi | Standart HTTP isteği (IP adresi, tarayıcı bilgisi) |
-| mzstatic.com (Apple CDN), cdn.myikas.com ve ürün görseli sunan mağaza CDN'leri | Mağaza logoları ve ürün görselleri | Standart görsel isteği |
-
-Eklenti uzaktan çalıştırılabilir kod indirmez; tüm kod paket içindedir.
-
-## 6. Satış ortaklığı (affiliate) açıklaması
-
-Eklenti ücretsizdir. Gelir modeli satış ortaklığıdır: Eklentinin gösterdiği ürün bağlantıları (karşılaştırma kartları, arama/öneri/reklam kartları, popup'taki "Ürüne git", QR kod ve paylaşım bağlantıları) ve desteklenen mağazaların sayfalarında tıkladığınız ürün bağlantıları, ortaklık ve/veya `utm_` izleme parametresi içerebilir. Bu bağlantılar üzerinden alışveriş yaparsanız mağazalardan komisyon alabiliriz; **ödediğiniz fiyat değişmez**. Eklenti çerez enjekte etmez, kupon uygulamaz. Bu açıklama Chrome Web Store sayfasında ve Eklenti arayüzünde (Ayarlar) de yer alır.
-
-## 7. İzinlerin kullanım amacı
-
-- **storage:** geçmiş, favori, ayar ve önbelleğin yerel saklanması.
-- **alarms:** favori fiyat kontrolü, öneri ve üyelik yenilemesi için zamanlayıcı.
-- **offscreen:** arama sonucu HTML'ini görünmez bir belgede ayrıştırmak (servis çalışanında DOM yoktur).
-- **notifications:** fiyat düşüşünü bildirmek.
-- **activeTab:** popup'tan açık ürün sayfasını okumak/karşılaştırmayı başlatmak.
-- **Site izinleri (host):** yalnızca yukarıdaki alışveriş siteleri ve Google Analytics. Eklenti başka sitelerde çalışmaz.
-
-## 8. Saklama, silme ve kontrol
-
-Yerel verilerinizi Popup > Geçmiş'ten silebilir, favorileri/alarmları kaldırabilir, tüm verileri `chrome://extensions` üzerinden eklentiyi kaldırarak silebilirsiniz. Bildirimleri Ayarlar'dan kapatabilirsiniz. Analitik verisi Google'da yukarıdaki sürede tutulur; istemci kimliği yerel olduğundan eklentiyi kaldırdığınızda yeni bir kimlik oluşmaz ve eski kayıtla ilişki kurulamaz.
-
-## 9. Çocuklar
-
-Eklenti 13 yaşın altındaki çocuklara yönelik değildir ve bilerek onların verisini toplamaz.
-
-## 10. KVKK ve haklarınız
-
-Türkiye'deki kullanıcılar için 6698 sayılı KVKK kapsamında veri sorumlusu yukarıda belirtilen geliştiricidir. Analitik verisi, hizmetin geliştirilmesi (meşru menfaat) amacıyla ve kimliğinizi belirlemeyecek biçimde işlenir. KVKK m.11 uyarınca verilerinize erişme, düzeltme, silme, işlemeye itiraz etme haklarınız vardır; başvuru için [E-POSTA ADRESİ] adresine yazabilirsiniz. Veriler Google'ın altyapısı nedeniyle yurt dışına aktarılabilir.
-
-## 11. Değişiklikler
-
-Politika değiştiğinde bu sayfa ve Eklenti sürüm notları güncellenir. Önemli değişikliklerde Chrome Web Store sayfası da güncellenir.
-
----
-
-# Ucuza Bul – Privacy Policy (English summary)
-
-**Version 1.23.0 · Last updated: 14 Oct 2026 · Contact: [E-MAIL]**
-
-Ucuza Bul has **no backend of its own**, requires no account and collects no email, password or payment data. History, favorites, price tracking and settings stay **locally in your browser** (`chrome.storage.local`). Product titles, search text and URLs are **never sent to us**; they are only used to query the supported shopping sites (Trendyol, Amazon TR, Hepsiburada, N11, PttAVM, Pazarama, idefix, Motorossa, Teknosa) for price comparison, and matching runs on your device.
-
-**Requests to shopping sites** are sent with your browser session cookies (`credentials: include`), so a site where you are logged in may associate them with your account; the extension itself never reads or stores cookies. **Pages read:** product pages of Trendyol, Hepsiburada, N11 and Amazon TR; the wishlist pages of these sites when you open them; membership indicators (Amazon Prime, Trendyol Plus, Hepsiburada Premium) which are stored locally only as yes/no.
-
-**Analytics:** anonymous usage events are sent via Google Analytics 4 Measurement Protocol (random client ID not linked to your Google account, extension version, browser language, membership yes/no, site names, counts, coarse price bucket, rounded estimated savings, setting toggles). No product titles, search text, URLs, favorites/history content or credentials are sent. Google receives your IP address as part of the request. Analytics cannot currently be switched off inside the extension; uninstall to stop it.
-
-**Other requests:** Google Fonts (popup typeface) and image CDNs (store logos, product images).
-
-**Affiliate disclosure:** product links shown by the extension and product links you click on supported stores may carry an affiliate and/or UTM parameter. We may earn a commission on purchases; the price you pay does not change. The extension does not inject cookies or apply coupons.
-
-**Remote code:** none. **Data sale:** none. **Deletion:** clear history inside the popup or uninstall the extension. **Contact:** [E-MAIL].
+<body><h1>Ucuza Bul – Gizlilik Politikası</h1>
+<p><strong>Son güncelleme:</strong> 17 Ekim 2026
+<strong>Geçerli olduğu ürün:</strong> &quot;Ucuza Bul: Fiyat Karşılaştırma ve Fiyat Takibi&quot; Chrome eklentisi (sürüm 1.26.x ve sonrası)
+<strong>Geliştirici:</strong> Burak
+<strong>İletişim:</strong> ucuzabulmedya@gmail.com</p>
+<p>Bu politika, Ucuza Bul eklentisinin hangi verilere eriştiğini, bunları nasıl kullandığını, nerede sakladığını ve kimlerle paylaştığını açıklar. Eklenti kullanıcı verisini satmaz, reklam amacıyla üçüncü taraflara aktarmaz ve kendi sunucumuza kullanıcı hesabı, ürün listesi veya sipariş bilgisi göndermez. Eklentinin kendine ait bir sunucusu ve kullanıcı hesabı sistemi yoktur.</p>
+<h2>1. Kısaca</h2>
+<ul>
+<li>Fiyat karşılaştırması, geçmiş, favoriler, fiyat takibi ve harcama özeti verileri <strong>yalnızca tarayıcınızda</strong> (<code>chrome.storage.local</code>) saklanır.</li>
+<li>Karşılaştırma yaparken ürün adı, ilgili alışveriş sitelerinin arama sayfalarına <strong>arama sorgusu olarak</strong> gönderilir. Bu, karşılaştırmanın çalışması için gereklidir.</li>
+<li>Kullanımı iyileştirmek için <strong>Google Analytics 4&#39;e anonim kullanım olayları</strong> gönderilir (bkz. Bölüm 4). Ürün adı, arama metni, sayfa adresi, hesap veya kimlik bilgisi gönderilmez.</li>
+<li>Ürün bağlantılarına ortaklık (affiliate) ve UTM parametreleri eklenir; bu sebeple bağlantıya tıkladığınızda ilgili alışveriş sitesi satın alımlarınızdan bize komisyon ödeyebilir (bkz. Bölüm 6). Fiyatınız değişmez.</li>
+</ul>
+<h2>2. Eklentinin eriştiği veriler ve amaçları</h2>
+<table>
+<thead>
+<tr>
+<th>Veri</th>
+<th>Nereden gelir</th>
+<th>Ne için kullanılır</th>
+<th>Nerede tutulur</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ürün başlığı, fiyat, görsel, bağlantı, marka/model gibi ürün bilgileri</td>
+<td>Açık olan Trendyol, Hepsiburada, N11 veya Amazon TR ürün sayfası; popup&#39;taki arama</td>
+<td>Diğer sitelerde eşleşen ürünü bulmak, fiyatları karşılaştırmak</td>
+<td>Yerel önbellek (en çok 6 saat) ve yerel geçmiş</td>
+</tr>
+<tr>
+<td>Arama ve karşılaştırma geçmişi</td>
+<td>Sizin yaptığınız karşılaştırma ve aramalar</td>
+<td>Popup &gt; Geçmiş bölümü</td>
+<td>Yalnızca yerel</td>
+</tr>
+<tr>
+<td>Ürün fiyat geçmişi</td>
+<td>Eklentinin ürün fiyatını gördüğü anlar</td>
+<td>Popup &gt; Ürün Detayı &gt; Fiyat Geçmişi grafiği</td>
+<td>Yalnızca yerel</td>
+</tr>
+<tr>
+<td>Favori ürünler</td>
+<td>Oturum açtığınız Trendyol, Hepsiburada, N11 ve Amazon TR favori/istek listeleriniz (sitenin kendi sayfası/API&#39;si, tarayıcı oturumunuzla okunur)</td>
+<td>Popup &gt; Favoriler, fiyat düşüşü bildirimi</td>
+<td>Yalnızca yerel</td>
+</tr>
+<tr>
+<td>Abonelik durumu (Amazon Prime, Trendyol Plus, Hepsiburada Premium: evet/hayır)</td>
+<td>Site sayfalarındaki üyelik göstergesi veya sizin manuel seçiminiz</td>
+<td>Kargo/üyelik avantajına göre karşılaştırmayı uyarlamak</td>
+<td>Yerel; ayrıca Bölüm 4&#39;teki anonim kullanıcı özelliği olarak gönderilir</td>
+</tr>
+<tr>
+<td>Toplam harcama özeti</td>
+<td>Trendyol ve Hepsiburada sipariş listeniz (oturumunuzla, yalnızca siz &quot;hesapla&quot;yı başlattığınızda veya ayarı açıkken)</td>
+<td>Profil &gt; Toplam Harcaman kartı</td>
+<td>Yalnızca yerel. Saklanan: toplam tutar, sipariş/ürün/iptal adedi, en büyük sipariş, yıl-ay özeti. Sipariş numarası, ürün adı, adres, alıcı adı <strong>saklanmaz</strong></td>
+</tr>
+<tr>
+<td>Ayarlar (bildirim, QR kartı, ortaklık bağlantısı, harcama kartı vb.)</td>
+<td>Sizin seçimleriniz</td>
+<td>Eklenti tercihlerinizi hatırlamak</td>
+<td>Yalnızca yerel</td>
+</tr>
+<tr>
+<td>Öneri ve kampanya önbelleği</td>
+<td>Alışveriş sitelerinin herkese açık öneri/fırsat sayfaları</td>
+<td>Popup &gt; Ana Sayfa &gt; &quot;Sana Özel&quot; ve kampanya alanı</td>
+<td>Yalnızca yerel</td>
+</tr>
+</tbody></table>
+<p>Eklenti; şifrenizi, ödeme/kart bilginizi, adresinizi, telefon numaranızı veya e-posta adresinizi okumaz, saklamaz ve göndermez. Çerezleri eklenti okumaz; ancak aşağıda belirtildiği gibi alışveriş sitelerine yapılan isteklerde tarayıcınızın o sitelerdeki oturumu kullanılabilir.</p>
+<p>Yerel verileri istediğiniz zaman eklentinin kendi ekranlarından temizleyebilir ya da eklentiyi kaldırarak tamamını silebilirsiniz.</p>
+<h2>3. Alışveriş sitelerine yapılan istekler</h2>
+<p>Karşılaştırma ve takip özellikleri için eklenti, aşağıdaki sitelere doğrudan tarayıcınızdan istek yapar: Trendyol, Amazon TR, Hepsiburada, N11, PttAVM, Pazarama, idefix, Motorossa ve Teknosa.</p>
+<ul>
+<li><strong>Arama sorguları:</strong> Karşılaştırma başlattığınızda ürün başlığından türetilen arama sorgusu bu sitelerin arama sayfalarına gönderilir. Bir ürün butonunun üzerine geldiğinizde sonuçlar hızlı gelsin diye önceden sorgu başlatılabilir; tıklamadığınız sürece sonuç kaydedilmez.</li>
+<li><strong>Oturumlu istekler:</strong> Favori listeniz, sipariş özetiniz ve üyelik durumunuz için Trendyol, Hepsiburada, N11 ve Amazon TR&#39;ye yapılan isteklerde tarayıcınızın o sitedeki oturumu kullanılır. Gelen yanıt cihazınızda işlenir; ham içerik bize veya başka bir üçüncü tarafa gönderilmez.</li>
+<li>Bu siteler, kendi gizlilik politikalarına göre istekleri (IP adresi, tarayıcı bilgisi vb.) kaydedebilir. Eklenti bu sitelerin sorumluluğunu üstlenmez.</li>
+</ul>
+<h2>4. Anonim kullanım analitiği (Google Analytics 4)</h2>
+<p>Eklentinin nasıl kullanıldığını ve hangi sitelerin okunabildiğini anlamak için Google Analytics 4 &quot;Measurement Protocol&quot; ile olay gönderilir. Uzaktan kod yüklenmez; olaylar yalnızca HTTPS isteği olarak <code>www.google-analytics.com</code> adresine iletilir.</p>
+<p><strong>Gönderilenler</strong></p>
+<ul>
+<li>Rastgele üretilmiş istemci kimliği (Google hesabınızla veya kimliğinizle ilişkisi yoktur) ve oturum kimliği.</li>
+<li>Olay türleri: eklenti kuruldu/güncellendi, popup açıldı, popup bölümü görüntülendi (Ana Sayfa, Profil, Geçmiş vb.), karşılaştırma tamamlandı, serbest arama yapıldı, sonuç/bağlantı tıklandı, ürün butonu gösterildi, QR kartı gösterildi/büyütüldü, paylaşım yöntemi (kopyala/indir/paylaş), ayar değiştirildi (açık/kapalı), tanıtım turu adımları, harcama hesaplandı.</li>
+<li>Toplu ve teknik bilgiler: site adı, eşleşme sayısı, bulunan en ucuz sitenin adı, yaklaşık tasarruf tutarı ve yüzdesi, işlem süresi, <strong>geniş fiyat aralığı</strong> (ör. &quot;500-2000&quot;).</li>
+<li>Kullanıcı özellikleri: eklenti sürümü, kurulumdan bu yana geçen gün sayısı, yeni/düzenli kullanıcı sınıfı, Prime/Trendyol Plus/Hepsiburada Premium için evet/hayır/bilinmiyor, saat dilimi, tarayıcı dili, tarayıcı adı ve sürümü, işletim sistemi ve sürümü, cihaz kategorisi.</li>
+<li>Google Analytics, isteğin IP adresinden yaklaşık konumu (ülke/bölge/şehir) kendisi çıkarır; eklenti konum bilgisi göndermez.</li>
+</ul>
+<p><strong>Gönderilmeyenler:</strong> ürün başlığı, arama metni, sayfa adresi (URL), favori listesi, sipariş bilgisi ve harcama tutarı, hesap/kimlik bilgisi, e-posta, adres.</p>
+<p>Analitik eklentinin temel çalışmasının bir parçasıdır ve eklenti içinde kapatma anahtarı yoktur. Analitiği durdurmanın yolu eklentiyi kaldırmaktır. Google&#39;ın verileri nasıl işlediği Google&#39;ın gizlilik politikasına tabidir: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+<h2>5. Diğer harici kaynaklar</h2>
+<ul>
+<li><strong>Google Fonts:</strong> Eklenti penceresinin yazı tipi <code>fonts.googleapis.com</code> adresinden yüklenir; bu istek Google&#39;a IP adresinizi iletir.</li>
+<li><strong>Marka görselleri:</strong> Karşılaştırma sonuçlarında gösterilen mağaza logoları uzak görsel sunucularından (ör. <code>is1-ssl.mzstatic.com</code>, <code>cdn.myikas.com</code>) yüklenir.</li>
+<li><strong>Ürün görselleri:</strong> Ürün kartlarındaki görseller ilgili alışveriş sitesinin görsel sunucularından yüklenir. Fiyat düşüşü bildirimleri için ürün görseli indirilip bildirimde gösterilebilir.</li>
+</ul>
+<h2>6. Ortaklık (affiliate) bağlantıları</h2>
+<p>Eklenti; Trendyol, Hepsiburada, N11 ve Amazon TR ürün bağlantılarına, <strong>siz o bağlantıya tıkladığınızda</strong>, ortaklık ve UTM parametreleri ekler. Bu, eklentinin sonuç kartlarındaki, popup&#39;taki ve QR kartındaki bağlantıları ile bu sitelerde gezinirken tıkladığınız ürün bağlantılarını kapsar. Bir bağlantıda önceden başka bir izleme/ortaklık parametresi varsa bu parametreler eklentinin parametreleriyle değiştirilebilir. Eklentinin Ayarlar bölümündeki ortaklık bağlantısı anahtarıyla bu davranışı kapatabilirsiniz. Bağlantıya eklenen parametreler ürün fiyatınızı değiştirmez; satın alma yaparsanız ilgili site bize komisyon ödeyebilir. Bu, eklentinin ücretsiz sunulmasını sağlar.</p>
+<h2>7. İzinlerin gerekçesi</h2>
+<table>
+<thead>
+<tr>
+<th>İzin</th>
+<th>Neden gerekli</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>storage</code>, <code>unlimitedStorage</code></td>
+<td>Önbellek, geçmiş, fiyat geçmişi, favoriler ve ayarların yerel saklanması</td>
+</tr>
+<tr>
+<td><code>alarms</code></td>
+<td>Favori fiyat kontrolü ve önbellek temizliği gibi arka plan görevlerinin zamanlanması</td>
+</tr>
+<tr>
+<td><code>notifications</code></td>
+<td>Favori ürünlerde fiyat düşüşü bildirimi (ayarlardan kapatılabilir)</td>
+</tr>
+<tr>
+<td><code>offscreen</code></td>
+<td>Servis çalışanında bulunmayan DOMParser ile arama sonuçlarının ayrıştırılması</td>
+</tr>
+<tr>
+<td><code>tabs</code></td>
+<td>Popup&#39;tan ilgili sekmeyi/sayfayı açmak ve etkin sekmedeki alışveriş sayfasını tanımak</td>
+</tr>
+<tr>
+<td>Site erişimi (<code>https://*/*</code>)</td>
+<td>Desteklenen alışveriş sitelerinden fiyat sayfalarını ve görselleri almak, bildirim görsellerini indirmek ve analitik isteklerini göndermek</td>
+</tr>
+</tbody></table>
+<h2>8. Çocuklar</h2>
+<p>Eklenti 13 yaşın altındaki çocuklara yönelik değildir ve onlardan bilerek veri toplamaz.</p>
+<h2>9. Haklarınız</h2>
+<p>Eklentide tutulan veriler cihazınızdadır; dilediğiniz zaman eklenti içinden silebilir veya eklentiyi kaldırarak tamamen kaldırabilirsiniz. Analitik verisi rastgele bir kimlikle tutulduğundan, belirli bir kişiyle ilişkilendirilemez; yine de sorularınız için yukarıdaki e-posta adresine yazabilirsiniz. KVKK ve GDPR kapsamındaki başvurularınızı da aynı adrese iletebilirsiniz.</p>
+<h2>10. Değişiklikler</h2>
+<p>Bu politika güncellendiğinde yukarıdaki tarih değiştirilir. Veri toplama biçiminde önemli bir değişiklik olursa eklenti sürüm notlarında belirtilir.</p>
+<h2>11. Sorumluluk reddi</h2>
+<p>Ucuza Bul bağımsız bir geliştirici ürünüdür. Trendyol, Hepsiburada, N11, Amazon, PttAVM, Pazarama, idefix, Motorossa ve Teknosa markalarıyla resmi bir bağı, ortaklığı veya onayı yoktur; markalar ilgili sahiplerine aittir.</p>
+</body></html>
